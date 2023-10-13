@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiMvvmDemo.Pages.EmployeeListPage"
+             Title="Employees"
+             xmlns:vm="clr-namespace:MauiMvvmDemo.Models.ViewModels"
+             xmlns:models="clr-namespace:MauiMvvmDemo.Models"
+             x:DataType="vm:EmployeesViewModel">
+    <ScrollView>
+        <FlexLayout Direction="Column">
+        <Frame Margin="5" Padding="5" FlexLayout.Basis="600">
+            <VerticalStackLayout Padding="10">
+                <Entry x:Name="Id" Placeholder="Employee ID" Text="{Binding Employee.EmployeeId}"/>
+                <Entry x:Name="Name" Placeholder="Name" Text="{Binding Employee.EmployeeName}"/>
+                <Entry x:Name="Email" Placeholder="Email" Text="{Binding Employee.Email}"/>
+                <Button x:Name="Adicion" Text="Add Employee" Margin="10" Clicked="Adicion_Clicked"/>
+            </VerticalStackLayout>
+        </Frame>
+
+        <ListView x:Name="listView" FlexLayout.Grow="1" ItemsSource="{Binding Employees}" ItemTapped="ListView_ItemTapped">
+            <ListView.Header>
+                <VerticalStackLayout BackgroundColor="#512BD4" Padding="5">
+                    <Label HorizontalOptions="Center" Text="Employees" TextColor="White"/>
+                </VerticalStackLayout>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="{x:Type models:Employee}">
+                    <TextCell Text="{Binding EmployeeId}" Detail="{Binding EmployeeName}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </FlexLayout>
+    </ScrollView>
+</ContentPage>

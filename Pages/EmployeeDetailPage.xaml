@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiMvvmDemo.Pages.EmployeeDetailPage"
+             Title="Employee Details"
+             xmlns:vm="clr-namespace:MauiMvvmDemo.Models.ViewModels"
+             x:DataType="vm:EmployeeDetailViewModel">
+    <VerticalStackLayout>
+        <TableView Intent="Data">
+            <TableRoot>
+                <TableSection Title="Basic Information">
+                    <TextCell x:Name="Id" Text="Employee ID" Detail="{Binding Employee.EmployeeId}"/>
+                    <TextCell x:Name="Name" Text="Name" Detail="{Binding Employee.EmployeeName}"/>
+                    <TextCell x:Name="Email" Text="Email" Detail="{Binding Employee.Email}"/>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+        <Button x:Name="EditDetail" Text="Editar Información" Margin="10" Clicked="EditDetail_Clicked"/>
+        <Button x:Name="Finalizar" Text="Finalizar" Margin="10" Clicked="Finalizar_Clicked"/>
+    </VerticalStackLayout>
+</ContentPage>

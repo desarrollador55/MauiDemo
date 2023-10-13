@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiMvvmDemo.Pages.ListViewPage"
+             Title="ListViewPage"
+             xmlns:vm="clr-namespace:MauiMvvmDemo.Models.ViewModels"
+             xmlns:models="clr-namespace:MauiMvvmDemo.Models"
+             x:DataType="vm:EmployeesViewModel">
+    <VerticalStackLayout>
+        <ListView x:Name="listView" FlexLayout.Grow="1" ItemsSource="{Binding Employees}">
+            <ListView.Header>
+                <VerticalStackLayout BackgroundColor="#512BD4" Padding="5">
+                    <Label HorizontalOptions="Center" Text="Employees" TextColor="White"/>
+                </VerticalStackLayout>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="{x:Type models:Employee}">
+                    <TextCell Text="{Binding EmployeeId}" Detail="{Binding EmployeeName}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button x:Name="Finalizar" Text="Finalizar" Margin="10" Clicked="Finalizar_Clicked"/>
+    </VerticalStackLayout>
+</ContentPage>
