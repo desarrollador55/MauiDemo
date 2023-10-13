@@ -1,4 +1,5 @@
 using MauiMvvmDemo.Models;
+using MauiMvvmDemo.Models.ViewModels;
 using System.Text.Json;
 
 namespace MauiMvvmDemo.Pages;
@@ -8,7 +9,9 @@ public partial class ListViewPage : ContentPage
 	public ListViewPage()
 	{
 		InitializeComponent();
-        IniciarLista();
+
+        BindingContext = new EmployeesViewModel();
+        //IniciarLista();
     }
 
     private async void Finalizar_Clicked(object sender, EventArgs e)

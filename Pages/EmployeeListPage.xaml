@@ -14,7 +14,8 @@
                 <Entry x:Name="Name" Placeholder="Name" Text="{Binding Employee.EmployeeName}"/>
                 <Entry x:Name="Email" Placeholder="Email" Text="{Binding Employee.Email}"/>
                 <Button x:Name="Adicion" Text="Add Employee" Margin="10" Clicked="Adicion_Clicked"/>
-            </VerticalStackLayout>
+                <Button x:Name="Terminar" Text="Terminar" Margin="10" Clicked="Terminar_Clicked"/>
+                </VerticalStackLayout>
         </Frame>
 
         <ListView x:Name="listView" FlexLayout.Grow="1" ItemTapped="ListView_ItemTapped">

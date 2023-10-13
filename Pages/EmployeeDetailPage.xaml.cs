@@ -21,6 +21,6 @@ public partial class EmployeeDetailPage : ContentPage
 
     private async void Finalizar_Clicked(object sender, EventArgs e)
     {
-        await Navigation.PopToRootAsync();
+        await Navigation.PopAsync();
     }
 }

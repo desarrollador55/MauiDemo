@@ -45,4 +45,13 @@ public partial class EmployeeListPage : ContentPage
         Employee employee = new Employee(Id.Text, Name.Text, Email.Text);
         objetos.Add(employee);
     }
+
+    private async void Terminar_Clicked(object sender, EventArgs e)
+    {
+        var employee = (ObservableCollection<Employee>) listView.ItemsSource;
+        var employeesViewModel = new EmployeesViewModel { Employees = employee };
+        var listaView = new ListViewPage();
+        listaView.BindingContext = employeesViewModel;
+        await Navigation.PushAsync(listaView);
+    }
 }
