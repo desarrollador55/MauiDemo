@@ -13,7 +13,6 @@ public partial class EmployeeListPage : ContentPage
 	{
 		InitializeComponent();
 
-        BindingContext = new EmployeesViewModel();
         IniciarLista();
     }
 

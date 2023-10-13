@@ -17,7 +17,7 @@
             </VerticalStackLayout>
         </Frame>
 
-        <ListView x:Name="listView" FlexLayout.Grow="1" ItemsSource="{Binding Employees}" ItemTapped="ListView_ItemTapped">
+        <ListView x:Name="listView" FlexLayout.Grow="1" ItemTapped="ListView_ItemTapped">
             <ListView.Header>
                 <VerticalStackLayout BackgroundColor="#512BD4" Padding="5">
                     <Label HorizontalOptions="Center" Text="Employees" TextColor="White"/>
