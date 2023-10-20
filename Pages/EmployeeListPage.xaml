@@ -8,7 +8,7 @@
              x:DataType="vm:EmployeesViewModel">
     <ScrollView>
         <FlexLayout Direction="Column">
-        <Frame Margin="5" Padding="5" FlexLayout.Basis="600">
+        <Frame Margin="5" Padding="5" FlexLayout.Basis="Auto">
             <VerticalStackLayout Padding="10">
                 <Entry x:Name="Id" Placeholder="Employee ID" Text="{Binding Employee.EmployeeId}"/>
                 <Entry x:Name="Name" Placeholder="Name" Text="{Binding Employee.EmployeeName}"/>
@@ -18,7 +18,31 @@
                 </VerticalStackLayout>
         </Frame>
 
-        <ListView x:Name="listView" FlexLayout.Grow="1" ItemTapped="ListView_ItemTapped">
+
+            <CollectionView x:Name="collectionView" SelectionMode="Single" SelectedItem="{x:Type models:Employee}">
+                <CollectionView.Header>
+                    <VerticalStackLayout BackgroundColor="#512bd4" Padding="5">
+                        <Label HorizontalOptions="Center" Text="Employees" TextColor="white"/>
+                        <Button Text="Revisar seleccionado" Clicked="Detalles_Clicked" BackgroundColor="#312bf8"/>
+                        <Button Text="Eliminar seleccionado" Clicked="Eliminar_Clicked" BackgroundColor="#212bd8"/>
+                    </VerticalStackLayout>
+                </CollectionView.Header>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="{x:Type models:Employee}">
+                        <VerticalStackLayout Margin="5">
+                            <HorizontalStackLayout>
+                                <VerticalStackLayout HorizontalOptions="Fill" Margin="5">
+                                    <Label x:Name="IdEmpleado" Text="{Binding EmployeeId}"/>
+                                    <Label x:Name="NombreEmpleado" Text="{Binding EmployeeName}"/>
+                                </VerticalStackLayout>
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!--<ListView x:Name="listView" FlexLayout.Grow="1" ItemTapped="ListView_ItemTapped">
             <ListView.Header>
                 <VerticalStackLayout BackgroundColor="#512BD4" Padding="5">
                     <Label HorizontalOptions="Center" Text="Employees" TextColor="White"/>
@@ -26,10 +50,10 @@
             </ListView.Header>
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="{x:Type models:Employee}">
-                    <TextCell Text="{Binding EmployeeId}" Detail="{Binding EmployeeName}"/>
+                        <TextCell Text="{Binding EmployeeId}" Detail="{Binding EmployeeName}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
-        </ListView>
+        </ListView>-->
     </FlexLayout>
     </ScrollView>
 </ContentPage>

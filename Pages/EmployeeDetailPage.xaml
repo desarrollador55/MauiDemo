@@ -10,6 +10,7 @@
             <TableRoot>
                 <TableSection Title="Basic Information">
                     <TextCell x:Name="Id" Text="Employee ID" Detail="{Binding Employee.EmployeeId}"/>
+                    <EntryCell x:Name="IdEdit" Text="{Binding Employee.EmployeeId}"/>
                     <TextCell x:Name="Name" Text="Name" Detail="{Binding Employee.EmployeeName}"/>
                     <TextCell x:Name="Email" Text="Email" Detail="{Binding Employee.Email}"/>
                 </TableSection>

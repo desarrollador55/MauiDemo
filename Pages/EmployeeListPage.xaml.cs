@@ -37,7 +37,7 @@ public partial class EmployeeListPage : ContentPage
         HttpResponseMessage response = await cliente.GetAsync("https://6340d5f6-4ea8-4aa6-9019-262d4f14bda6.mock.pstmn.io/pruebaMaui");
         string json = await response.Content.ReadAsStringAsync();
         objetos = JsonSerializer.Deserialize<ObservableCollection<Employee>>(json, _serializerOptions);
-        listView.ItemsSource = objetos;
+        collectionView.ItemsSource = objetos;
     }
 
     private void Adicion_Clicked(object sender, EventArgs e)
@@ -48,10 +48,25 @@ public partial class EmployeeListPage : ContentPage
 
     private async void Terminar_Clicked(object sender, EventArgs e)
     {
-        var employee = (ObservableCollection<Employee>) listView.ItemsSource;
+        var employee = (ObservableCollection<Employee>) collectionView.ItemsSource;
         var employeesViewModel = new EmployeesViewModel { Employees = employee };
         var listaView = new ListViewPage();
         listaView.BindingContext = employeesViewModel;
         await Navigation.PushAsync(listaView);
+    }
+
+    private async void Detalles_Clicked(object sender, EventArgs e)
+    {
+        var employee = (Employee) collectionView.SelectedItem;
+		var employeeDetailViewModel = new EmployeeDetailViewModel { Employee = employee };
+		var employeeDetailPage = new EmployeeDetailPage();
+		employeeDetailPage.BindingContext = employeeDetailViewModel;
+		await Navigation.PushAsync(employeeDetailPage);
+    }
+
+    private void Eliminar_Clicked(object sender, EventArgs e)
+    {
+        var employee = (Employee)collectionView.SelectedItem;
+        objetos.Remove(employee);
     }
 }

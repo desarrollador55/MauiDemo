@@ -1,8 +1,17 @@
-﻿namespace MauiMvvmDemo.Models
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+
+namespace MauiMvvmDemo.Models
 {
-    internal class Employee
+    internal class Employee : ObservableObject
     {
-        public string EmployeeId { get; set; }
+        private string _employeeId;
+        private string _employeeName;
+        private string _email;
+
+        public string EmployeeId {
+            get => _employeeId;
+            set => SetProperty(ref _employeeId, value);
+        }
         public string EmployeeName { get; set; }
         public string Email { get; set; }
 
