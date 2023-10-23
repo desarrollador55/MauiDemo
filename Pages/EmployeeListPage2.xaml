@@ -22,10 +22,7 @@
                 </VerticalStackLayout>
             </Frame>
 
-            <CollectionView
-            x:Name="collectionView"
-            EmptyView="Sin datos registrados"
-            SelectionMode="Single">
+            <CollectionView x:Name="collectionView" EmptyView="Sin datos registrados" SelectionMode="Single">
 
                 <CollectionView.Header>
                     <VerticalStackLayout Padding="2" BackgroundColor="#D4E6F1">
