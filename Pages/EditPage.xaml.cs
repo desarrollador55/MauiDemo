@@ -14,7 +14,5 @@ public partial class EditPage : ContentPage
     private async void Finalizar_Clicked(object sender, EventArgs e)
     {
         await Navigation.PopAsync();
-        //var listViewPage = new ListViewPage();
-        //await Navigation.PushAsync(listViewPage);
     }
 }

@@ -13,6 +13,10 @@
                     <Entry x:Name="Id" Placeholder="Employee ID" Text="{Binding Employee.EmployeeId}"/>
                     <Entry x:Name="Name" Placeholder="Name" Text="{Binding Employee.EmployeeName}"/>
                     <Entry x:Name="Email" Placeholder="Email" Text="{Binding Employee.Email}"/>
+                    <HorizontalStackLayout>
+                        <Label Text="Blocked"/>
+                        <Switch x:Name="Blocked" IsToggled="{Binding Employee.Blocked}"/>
+                    </HorizontalStackLayout>
                     <Button x:Name="Adicion" Text="Add Employee" Margin="10" Clicked="Adicion_Clicked"/>
                     <Button x:Name="Terminar" Text="Terminar" Margin="10" Clicked="Terminar_Clicked"/>
                 </VerticalStackLayout>
@@ -34,37 +38,30 @@
                         <SwipeView>
                             <SwipeView.LeftItems>
                                 <SwipeItems>
-                                    <SwipeItem IconImageSource="detalles.png" Clicked="Detalles_Clicked"/>
-                                    <SwipeItem IconImageSource="basurero.png" Clicked="Borrar_Clicked"/>
+                                    <SwipeItem IconImageSource="detalles.png" Clicked="Detalles_Clicked" BackgroundColor="Blue"/>
+                                    <SwipeItem IconImageSource="basurero.png" Clicked="Borrar_Clicked" BackgroundColor="Red"/>
                                 </SwipeItems>
                             </SwipeView.LeftItems>
 
-                            <Frame Margin="10">
+                            <Frame Margin="5">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width=".4*" />
                                     </Grid.ColumnDefinitions>
 
                                     <VerticalStackLayout Grid.Column="0">
-                                        <Label
-                                        Grid.Row="0"
-                                        Grid.Column="0"
-                                        Text="{Binding EmployeeId}"
-                                        VerticalOptions="Center" />
-                                        <Label
-                                        Grid.Row="1"
-                                        Grid.Column="0"
-                                        Text="{Binding EmployeeName}"
-                                        VerticalOptions="Center" />
+                                        <Label Grid.Row="0" Grid.Column="0" Text="{Binding EmployeeId}" VerticalOptions="Center" />
+                                        <Label Grid.Row="1" Grid.Column="0" Text="{Binding EmployeeName}" VerticalOptions="Center" />
+                                        <Switch IsToggled="{Binding Blocked}"/>
                                     </VerticalStackLayout>
                                 </Grid>
                             </Frame>
-
                         </SwipeView>
-
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
+                
             </CollectionView>
+            
         </FlexLayout>
     </ScrollView>
 </ContentPage>

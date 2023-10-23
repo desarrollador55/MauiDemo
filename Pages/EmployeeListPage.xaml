@@ -13,6 +13,10 @@
                 <Entry x:Name="Id" Placeholder="Employee ID" Text="{Binding Employee.EmployeeId}"/>
                 <Entry x:Name="Name" Placeholder="Name" Text="{Binding Employee.EmployeeName}"/>
                 <Entry x:Name="Email" Placeholder="Email" Text="{Binding Employee.Email}"/>
+                <HorizontalStackLayout>
+                    <Label Text="Blocked"/>
+                    <Switch x:Name="Blocked" IsToggled="{Binding Employee.Blocked}"/>
+                </HorizontalStackLayout>
                 <Button x:Name="Adicion" Text="Add Employee" Margin="10" Clicked="Adicion_Clicked"/>
                 <Button x:Name="Terminar" Text="Terminar" Margin="10" Clicked="Terminar_Clicked"/>
                 </VerticalStackLayout>
@@ -23,8 +27,8 @@
                 <CollectionView.Header>
                     <VerticalStackLayout BackgroundColor="#512bd4" Padding="5">
                         <Label HorizontalOptions="Center" Text="Employees" TextColor="white"/>
-                        <Button Text="Revisar seleccionado" Clicked="Detalles_Clicked" BackgroundColor="#312bf8"/>
-                        <Button Text="Eliminar seleccionado" Clicked="Eliminar_Clicked" BackgroundColor="#212bd8"/>
+                        <Button Text="Revisar seleccionado" Clicked="Detalles_Clicked" BackgroundColor="Blue"/>
+                        <Button Text="Eliminar seleccionado" Clicked="Eliminar_Clicked" BackgroundColor="Red"/>
                     </VerticalStackLayout>
                 </CollectionView.Header>
 
@@ -35,6 +39,7 @@
                                 <VerticalStackLayout HorizontalOptions="Fill" Margin="5">
                                     <Label x:Name="IdEmpleado" Text="{Binding EmployeeId}"/>
                                     <Label x:Name="NombreEmpleado" Text="{Binding EmployeeName}"/>
+                                    <Switch x:Name="BlockedEmpleado" IsToggled="{Binding Blocked}"/>
                                 </VerticalStackLayout>
                             </HorizontalStackLayout>
                         </VerticalStackLayout>

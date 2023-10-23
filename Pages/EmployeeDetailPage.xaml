@@ -8,11 +8,12 @@
     <VerticalStackLayout>
         <TableView Intent="Data">
             <TableRoot>
-                <TableSection Title="Basic Information">
+                <TableSection Title="Información de Empleado">
                     <TextCell x:Name="Id" Text="Employee ID" Detail="{Binding Employee.EmployeeId}"/>
                     <EntryCell x:Name="IdEdit" Text="{Binding Employee.EmployeeId}"/>
                     <TextCell x:Name="Name" Text="Name" Detail="{Binding Employee.EmployeeName}"/>
                     <TextCell x:Name="Email" Text="Email" Detail="{Binding Employee.Email}"/>
+                    <SwitchCell x:Name="Blocked" On="{Binding Employee.Blocked}"/>
                 </TableSection>
             </TableRoot>
         </TableView>

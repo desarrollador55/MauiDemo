@@ -2,11 +2,12 @@
 
 namespace MauiMvvmDemo.Models
 {
-    internal class Employee : ObservableObject
+    internal partial class Employee : ObservableObject
     {
         private string _employeeId;
         private string _employeeName;
         private string _email;
+        private bool _blocked;
 
         public string EmployeeId {
             get => _employeeId;
@@ -20,17 +21,22 @@ namespace MauiMvvmDemo.Models
             get => _email;
             set => SetProperty(ref _email, value);
         }
+        public bool Blocked{
+            get => _blocked;
+            set => SetProperty(ref _blocked, value);
+        }
 
         public Employee()
         {
             
         }
 
-        public Employee(string employeeId, string employeeName, string email)
+        public Employee(string employeeId, string employeeName, string email, bool blocked)
         {
-            this.EmployeeId = employeeId;
-            this.EmployeeName = employeeName;
-            this.Email = email;
+            EmployeeId = employeeId;
+            EmployeeName = employeeName;
+            Email = email;
+            Blocked = blocked;
         }
     }
 }

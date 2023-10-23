@@ -12,6 +12,7 @@
                     <EntryCell x:Name="Id" Text="{Binding Employee.EmployeeId}"/>
                     <EntryCell x:Name="Name" Text="{Binding Employee.EmployeeName}"/>
                     <EntryCell x:Name="Email" Text="{Binding Employee.Email}"/>
+                    <SwitchCell x:Name="Blocked" On="{Binding Employee.Blocked}"/>
                 </TableSection>
             </TableRoot>
         </TableView>
