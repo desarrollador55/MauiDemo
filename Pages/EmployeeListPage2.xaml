@@ -5,7 +5,15 @@
              Title="EmployeeListPage2"
              xmlns:vm="clr-namespace:MauiMvvmDemo.Models.ViewModels"
              xmlns:models="clr-namespace:MauiMvvmDemo.Models"
-             x:DataType="vm:EmployeesViewModel">
+             x:DataType="vm:EmployeesViewModel"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ScrollView>
         <FlexLayout Direction="Column">
             <Frame Margin="5" Padding="5" FlexLayout.Basis="Auto">
@@ -36,7 +44,7 @@
                             <SwipeView.LeftItems>
                                 <SwipeItems>
                                     <SwipeItem IconImageSource="detalles.png" Clicked="Detalles_Clicked" BackgroundColor="Blue"/>
-                                    <SwipeItem IconImageSource="basurero.png" Clicked="Borrar_Clicked" BackgroundColor="Red"/>
+                                    <SwipeItem IsVisible="{Binding Blocked, Converter={StaticResource InvertedBoolConverter}}" IconImageSource="basurero.png" Clicked="Borrar_Clicked" BackgroundColor="Red"/>
                                 </SwipeItems>
                             </SwipeView.LeftItems>
 

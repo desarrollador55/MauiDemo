@@ -52,9 +52,6 @@ public partial class EmployeeListPage2 : ContentPage
             return;
 
         Employee employee = item.BindingContext as Employee;
-
-        if (employee.Blocked == true)
-            return;
         objetos.Remove(employee);
     }
 
