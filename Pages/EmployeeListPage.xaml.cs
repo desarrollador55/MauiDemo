@@ -16,15 +16,6 @@ public partial class EmployeeListPage : ContentPage
         IniciarLista();
     }
 
-    private async void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
-    {
-		var employee = (Employee)e.Item;
-		var employeeDetailViewModel = new EmployeeDetailViewModel { Employee = employee };
-		var employeeDetailPage = new EmployeeDetailPage();
-		employeeDetailPage.BindingContext = employeeDetailViewModel;
-		await Navigation.PushAsync(employeeDetailPage);
-    }
-
     private async void IniciarLista()
     {
         HttpClient cliente = new HttpClient();

@@ -41,19 +41,6 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-
-            <!--<ListView x:Name="listView" FlexLayout.Grow="1" ItemTapped="ListView_ItemTapped">
-            <ListView.Header>
-                <VerticalStackLayout BackgroundColor="#512BD4" Padding="5">
-                    <Label HorizontalOptions="Center" Text="Employees" TextColor="White"/>
-                </VerticalStackLayout>
-            </ListView.Header>
-            <ListView.ItemTemplate>
-                <DataTemplate x:DataType="{x:Type models:Employee}">
-                        <TextCell Text="{Binding EmployeeId}" Detail="{Binding EmployeeName}"/>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>-->
     </FlexLayout>
     </ScrollView>
 </ContentPage>
