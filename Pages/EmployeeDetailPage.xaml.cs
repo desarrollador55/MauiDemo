@@ -12,10 +12,8 @@ public partial class EmployeeDetailPage : ContentPage
 
     private async void EditDetail_Clicked(object sender, EventArgs e)
     {
-        var employee = new Employee(Id.Detail,Name.Detail,Email.Detail,Blocked.IsEnabled);
-        var employeeDetailViewModel = new EmployeeDetailViewModel { Employee = employee };
-        var employeeEditPage = new EditPage();
-        employeeEditPage.BindingContext = employeeDetailViewModel;
+        EditPage employeeEditPage = new EditPage();
+        employeeEditPage.BindingContext = BindingContext;
         await Navigation.PushAsync(employeeEditPage);
     }
 
