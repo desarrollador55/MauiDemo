@@ -12,8 +12,14 @@ namespace MauiMvvmDemo.Models
             get => _employeeId;
             set => SetProperty(ref _employeeId, value);
         }
-        public string EmployeeName { get; set; }
-        public string Email { get; set; }
+        public string EmployeeName {
+            get => _employeeName;
+            set => SetProperty(ref _employeeName, value);
+        }
+        public string Email {
+            get => _email;
+            set => SetProperty(ref _email, value);
+        }
 
         public Employee()
         {

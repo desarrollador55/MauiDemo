@@ -25,7 +25,7 @@
 
                 <CollectionView.Header>
                     <VerticalStackLayout Padding="2" BackgroundColor="#D4E6F1">
-                        <Label FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" Text="Lista de Empleados" />
+                        <Label FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" Text="Lista de Pedidos" />
                     </VerticalStackLayout>
                 </CollectionView.Header>
 
