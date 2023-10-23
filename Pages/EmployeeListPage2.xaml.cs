@@ -33,6 +33,7 @@ public partial class EmployeeListPage2 : ContentPage
     {
         Employee employee = new Employee(Id.Text, Name.Text, Email.Text, Blocked.IsToggled);
         objetos.Add(employee);
+        Id.Text=""; Name.Text=""; Email.Text=""; Blocked.IsToggled=false;
     }
 
     private async void Terminar_Clicked(object sender, EventArgs e)
