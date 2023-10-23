@@ -23,7 +23,7 @@
         </Frame>
 
 
-            <CollectionView x:Name="collectionView" SelectionMode="Single" SelectedItem="{x:Type models:Employee}">
+            <CollectionView x:Name="collectionView" SelectionMode="Single">
                 <CollectionView.Header>
                     <VerticalStackLayout BackgroundColor="#512bd4" Padding="5">
                         <Label HorizontalOptions="Center" Text="Employees" TextColor="white"/>
