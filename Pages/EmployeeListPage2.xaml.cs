@@ -5,16 +5,14 @@ using System.Text.Json;
 
 namespace MauiMvvmDemo.Pages;
 
-public partial class EmployeeListPage : ContentPage
+public partial class EmployeeListPage2 : ContentPage
 {
     ObservableCollection<Employee> objetos;
-
-    public EmployeeListPage()
+    public EmployeeListPage2()
 	{
 		InitializeComponent();
-
         IniciarLista();
-    }
+	}
 
     private async void IniciarLista()
     {
@@ -39,25 +37,33 @@ public partial class EmployeeListPage : ContentPage
 
     private async void Terminar_Clicked(object sender, EventArgs e)
     {
-        var employee = (ObservableCollection<Employee>) collectionView.ItemsSource;
+        var employee = (ObservableCollection<Employee>)collectionView.ItemsSource;
         var employeesViewModel = new EmployeesViewModel { Employees = employee };
         var listaView = new ListViewPage();
         listaView.BindingContext = employeesViewModel;
         await Navigation.PushAsync(listaView);
     }
 
-    private async void Detalles_Clicked(object sender, EventArgs e)
+    private void Borrar_Clicked(object sender, EventArgs e)
     {
-        Employee employee = (Employee) collectionView.SelectedItem;
-		EmployeeDetailViewModel employeeDetailViewModel = new EmployeeDetailViewModel { Employee = employee };
-		EmployeeDetailPage employeeDetailPage = new EmployeeDetailPage();
-		employeeDetailPage.BindingContext = employeeDetailViewModel;
-		await Navigation.PushAsync(employeeDetailPage);
+        SwipeItem item = sender as SwipeItem;
+        if (item is null)
+            return;
+
+        Employee employee = item.BindingContext as Employee;
+        objetos.Remove(employee);
     }
 
-    private void Eliminar_Clicked(object sender, EventArgs e)
+    private async void Detalles_Clicked(object sender, EventArgs e)
     {
-        var employee = (Employee)collectionView.SelectedItem;
-        objetos.Remove(employee);
+        SwipeItem item = sender as SwipeItem;
+        if (item is null)
+            return;
+
+        Employee employee = item.BindingContext as Employee;
+        EmployeeDetailViewModel employeeDetailViewModel = new EmployeeDetailViewModel { Employee = employee };
+        EmployeeDetailPage employeeDetailPage = new EmployeeDetailPage();
+        employeeDetailPage.BindingContext = employeeDetailViewModel;
+        await Navigation.PushAsync(employeeDetailPage);
     }
 }

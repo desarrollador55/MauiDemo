@@ -5,5 +5,7 @@
              Title="MainPage">
     <VerticalStackLayout>
         <Button x:Name="CapturarPedidos" Text="Capturar Pedidos" Clicked="CapturarPedidos_Clicked" Margin="10"/>
+        <Button x:Name="CapturarPedidos2" Text="Capturar Pedidos 2" Clicked="CapturarPedidos2_Clicked" Margin="10"/>
+
     </VerticalStackLayout>
 </ContentPage>

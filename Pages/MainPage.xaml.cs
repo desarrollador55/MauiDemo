@@ -13,4 +13,9 @@ public partial class MainPage : ContentPage
     {
         await Navigation.PushAsync(new EmployeeListPage());
     }
+
+    private async void CapturarPedidos2_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new EmployeeListPage2());
+    }
 }
